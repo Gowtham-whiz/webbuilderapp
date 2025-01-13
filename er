@@ -1,0 +1,39 @@
+erDiagram
+    User ||--o{ Permissions : has
+    User ||--o{ Ticket : assigned_to
+    User ||--o{ Notification : has
+    User }|--|| Agency : belongs_to
+
+    Agency ||--o{ SubAccount : has
+    Agency ||--o{ AgencySidebarOption : has
+    Agency ||--o{ Invitation : has
+    Agency ||--o{ Notification : has
+    Agency ||--|| Subscription : has
+    Agency ||--o{ AddOns : has
+    Agency ||--o{ User : has
+
+    SubAccount ||--o{ Permissions : has
+    SubAccount ||--o{ Funnel : has
+    SubAccount ||--o{ Media : has
+    SubAccount ||--o{ Contact : has
+    SubAccount ||--o{ Trigger : has
+    SubAccount ||--o{ Automation : has
+    SubAccount ||--o{ Pipeline : has
+    SubAccount ||--o{ Tag : has
+    SubAccount ||--o{ Notification : has
+    SubAccount ||--o{ SubAccountSidebarOption : has
+
+    Pipeline ||--o{ Lane : has
+    Lane ||--o{ Ticket : has
+
+    Ticket }|--o| Contact : belongs_to
+    Ticket }o--o{ Tag : has
+
+    Trigger ||--o{ Automation : triggers
+    Automation ||--o{ Action : has
+    Automation ||--o{ AutomationInstance : has
+
+    Funnel ||--o{ FunnelPage : has
+    Funnel ||--o{ ClassName : has
+
+    Contact ||--o{ Ticket : has
